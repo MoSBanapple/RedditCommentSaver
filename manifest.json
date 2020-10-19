@@ -1,8 +1,9 @@
 {
-  "name": "Getting Started Example",
+  "name": "Comment Saver for Old Reddit",
   "version": "1.0",
-  "description": "Build an Extssnsion!",
-  "permissions": ["storage"],
+  "description": "Saves comments if you accidentally close your window.",
+  "permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
+  "options_page": "options.html",
   "background": {
       "scripts": ["background.js"],
       "persistent": false
@@ -22,5 +23,11 @@
       "48": "images/get_started48.png",
       "128": "images/get_started128.png"
     },
+  "content_scripts": [
+   {
+     "matches": ["https://*.reddit.com/*"],
+     "js": ["reddit.js"]
+   }
+  ],
   "manifest_version": 2
 }
